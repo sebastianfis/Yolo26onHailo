@@ -1,0 +1,3 @@
+Pillow
+ultralytics>= 8.4.8
+# hailo_sdk_client
