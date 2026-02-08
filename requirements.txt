@@ -1,3 +1,4 @@
 Pillow
 ultralytics>= 8.4.8
+opencv-python-headless==4.11.0.86
 # hailo_sdk_client
