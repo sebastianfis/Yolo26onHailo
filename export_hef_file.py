@@ -5,10 +5,10 @@ NOTE: This script is to be run on Linux with hailo_dataflow_compiler-3.33.0-py3-
 '''
 
 
-def export_hef_file(name="yolo26m", hw_arch="hailo8l"):
+def export_hef_file(name="yolo26m_hailo_model_quantized_model.har", hw_arch="hailo8l"):
     runner = ClientRunner(
-        hw_arch="hailo8l",
-        har="yolo26m_hailo_model_quantized_model.har"
+        hw_arch=hw_arch,
+        har=name
     )
 
     model_script_commands = [
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--name', type=str, default="yolo26m")
+    parser.add_argument('--name', type=str, default="yolo26m_hailo_model_quantized_model.har")
     parser.add_argument('--hwarch', type=str, default="hailo8l")
     args = parser.parse_args()
     export_hef_file(name=args.name, hw_arch=args.hwarch)

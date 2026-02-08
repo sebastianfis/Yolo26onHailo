@@ -14,13 +14,13 @@ End nodes mapped from original model:
 '''
 
 
-def optimize_har_file(name="yolo26m",
+def optimize_har_file(name="yolo26m_hailo_model",
                       hw_arch="hailo8l",
                       opt_level="2",
                       comp_level="3",
                       pqt_epochs="12",
                       pqt_lr="1e-5"):
-    model_name = name + "_hailo_model"
+    model_name = name
 
     runner = ClientRunner(hw_arch=hw_arch, har=model_name + '.har')
 
@@ -51,11 +51,11 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--name', type=str, default="yolo26m")
+    parser.add_argument('--name', type=str, default="yolo26m_hailo_model")
     parser.add_argument('--hwarch', type=str, default="hailo8l")
     parser.add_argument('--opt_level', type=str, default="2")
     parser.add_argument('--comp_level', type=str, default="3")
-    parser.add_argument('--pqt_epochs', type=str, default="12")
+    parser.add_argument('--pqt_epochs', type=str, default="8")
     parser.add_argument('--pqt_lr', type=str, default="1e-5")
     args = parser.parse_args()
     optimize_har_file(name=args.name,
